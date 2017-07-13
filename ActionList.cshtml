@@ -1,0 +1,30 @@
+﻿@model List<WebApplication1.Models.NameValueData>
+@{
+    ViewBag.Title = "ActionList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/PersonSample.js"></script>
+<h2>ActionList</h2>
+
+<div class="row form-group">
+    <label class="col-md-3">Name:</label>
+    @Html.TextBox("txt1", null, new { @class = "form-control col-md-9", @placeholder = "Enter Name" })
+    @*<input type="text" class="form-control col-md-9" id="txt1" placeholder="Enter Name" />*@
+</div>
+<div class="row form-group">
+    <label class="col-md-3">Address:</label>
+    <input class="form-control col-md-9" type="text" id="txt2"  placeholder="Enter Address"/>
+</div>
+<div class="row form-group">
+    <label class="col-md-3">City:</label>
+    @Html.DropDownList("CityId", new SelectList(ViewBag.City, "Value", "Name"), "Select City",new { @class = "form-control col-md-9" })
+    @*<input class="form-control col-md-9" type="text" id="txt3"  placeholder="Enter Salary"/>*@
+</div>
+<div>
+    <button class="btn btn-primary" id="btnSave">Save</button>
+    <button class="btn btn-default" id="btnClear">Clear</button>
+</div>
+<div>
+    @Html.Partial("_ActionList", Model);
+</div>

@@ -1,0 +1,32 @@
+﻿@model List<WebApplication1.Models.NameValueData>
+
+<div>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>City Name</th>
+                <th>City Id</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <th>@item.Name</th>
+                    <td>@item.Value</td>
+                    <td>
+                        <a data-value="@item.Value"
+                           href="javascript:Edit('@item.Value')" class="btnEdit">Edit</a>
+                    </td>
+                    <td>
+                        <a data-value="@item.Value"
+                           href="javascript:Delete('@item.Value')" class="btnDelete">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
